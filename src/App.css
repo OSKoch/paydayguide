@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #689053;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+}
+.title:hover{
+    color: hsla(0, 0%, 90%);
+    cursor: pointer;
+}
+
+.container .subTitle{
+    font-size: 35px;
+}

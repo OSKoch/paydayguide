@@ -1,0 +1,38 @@
+.codeGuesserBody{
+    width: 50%;
+}
+
+input[type=number]{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+}
+
+.codeGuesserResults{
+    display: flex;
+    justify-content: center; /* Center the grid horizontally */
+    align-items: flex-start; /* Align items at the start vertically */
+    height: 100vh; /* Adjust as needed */
+}
+
+.codesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive columns */
+    grid-auto-rows: 120px; /* Fixed row height */
+    gap: 10px;
+    height: 480px; /* Fixed height to accommodate 4 rows of 120px height plus gaps */
+}
+
+.codeItem {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

@@ -5,63 +5,77 @@ function CodeGuesser() {
   let [digits, setDigits] = useState('');
   let [lastDigit, setLastDigit] = useState('');
   let [codes, setCodes] = useState([]);
+  let [gridColumns, setGridColumns] = useState(1); // Default to 1 column initially
+
+  useEffect(() => {
+    document.title = "Payday 3 Code Guesser"; // Set the title here
+  }, []);
 
   function handleDigitChange(event) {
     const value = event.target.value;
-
-    // Allow deletion of the last character and reset digits to empty string if needed
     setDigits(value);
   }
 
   function handleLastDigitChange(event) {
     let number = event.target.value;
-    // Allow the lastDigit to be cleared
     setLastDigit(number);
   }
 
   function calculateCodes() {
-    const numbers = ('' + digits).split(''); // Convert digits to an array of strings
+    const numbers = ('' + digits).split('');
     const result = [];
 
     const helper = (path = []) => {
-      // If the path length is 4, check if it meets the lastDigit requirement
       if (path.length === 4) {
-        // Check if the combination contains all original digits
-        const pathSet = new Set(path); // Convert path to a Set to remove duplicates
-        const numbersSet = new Set(numbers); // Convert original numbers to a Set
+        const pathSet = new Set(path);
+        const numbersSet = new Set(numbers);
 
-        // Ensure the path contains all digits from the original set
         if (
           numbersSet.size === pathSet.size &&
           [...numbersSet].every((num) => pathSet.has(num)) &&
           (lastDigit === '' || path[3] === lastDigit)
         ) {
-          result.push(path.join('')); // Join the path to form a string and add it to the result
+          result.push(path.join(''));
         }
-        return; // Stop further recursion
+        return;
       }
 
-      // Recursively build each combination by appending each digit
       for (let i = 0; i < numbers.length; i++) {
-        helper([...path, numbers[i]]); // Create a new array with the current path plus the new digit
+        helper([...path, numbers[i]]);
       }
     };
 
-    helper(); // Start the recursion with an empty path
+    helper();
     setCodes(result);
+
+    // Determine rows and columns for a balanced grid
+    let resultLength = result.length;
+    let rows, columns;
+
+    // Start from the square root of the result length to find a balanced grid
+    for (let i = Math.floor(Math.sqrt(resultLength)); i > 0; i--) {
+        if (resultLength % i === 0) {
+            rows = i;
+            columns = resultLength / i;
+            setGridColumns(columns); // Set the columns directly here
+            break; // Found a valid pair, no need to check further
+        }
+    }
+
+    console.log(`Rows: ${rows}, Columns: ${columns}`);
   }
 
-  // Effect to manage lastDigit state based on digits
   useEffect(() => {
-    // Reset lastDigit when the input is disabled
     if (digits.toString().length >= 4) {
       setLastDigit('');
     }
-  }, [digits]); // This effect depends on the digits state
+  }, [digits]);
 
   function handleButtonClick(event){
-    const style = event.target.style.textDecoration;
-    event.target.style.textDecoration = (style === "line-through" ? "none" : "line-through");
+    const styleLine = event.target.style.textDecoration;
+    event.target.style.textDecoration = (styleLine === "line-through" ? "none" : "line-through");
+    const styleColor = event.target.style.color;
+    event.target.style.color = (styleColor === "red" ? "white" : "red");
   }
 
   return (
@@ -101,12 +115,17 @@ function CodeGuesser() {
       </span>
       
       <button className={styles.codeGuesserButton} onClick={calculateCodes}>Calculate</button>
-      
+      <h2>Generated Codes:</h2>
       <div className={styles.codeGuesserResults}>
-        <h2>Generated Codes:</h2>
-        <div className={styles.codesGrid}>
+        
+        <div
+          className={styles.codesGrid}
+          style={{ gridTemplateColumns: `repeat(${gridColumns}, 1fr)` }} // Use gridColumns directly
+        >
           {codes.map((code, index) => (
-            <button key={index} className={styles.codeItem} onClick={handleButtonClick}>{code}</button>
+            <button key={index} className={styles.codeItem} onClick={handleButtonClick}>
+              {code}
+            </button>
           ))}
         </div>
       </div>

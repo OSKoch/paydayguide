@@ -13,26 +13,36 @@ input[type=number]{
     transition: background-color 0.5s ease;
 }
 
-.codeGuesserResults{
-    display: flex;
-    justify-content: center; /* Center the grid horizontally */
-    align-items: flex-start; /* Align items at the start vertically */
-    height: 100vh; /* Adjust as needed */
-}
-
-.codesGrid {
+.codeGuesserResults {
+    margin-top: 20px;
+  }
+  
+  .codesGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive columns */
-    grid-auto-rows: 120px; /* Fixed row height */
-    gap: 10px;
-    height: 480px; /* Fixed height to accommodate 4 rows of 120px height plus gaps */
-}
-
-.codeItem {
-    background-color: #f4f4f4;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Spread out the columns */
+    gap: 20px; /* Increase gap between items */
+    width: 100%; 
+    max-width: 1000px; /* Optional: adjust this to match your page */
+    margin: 0 auto; /* Center the grid */
+  }
+  
+  .codeItem {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #1a1a1a;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 10px;
     text-align: center;
-    color: black;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
+    cursor: pointer;
+  }
+  
+  .codeItem:hover {
+    background-color: #ddd;
+  }
+  
+  .codeItem:active {
+    background-color: #bbb;
+    transform: scale(0.98); /* Slight click effect */
+  }

@@ -1,0 +1,93 @@
+.resetButton{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+.resetButton:hover {
+    background-color: rgba(0, 0, 0, 0.60);
+    cursor: pointer;
+}
+
+.resetButton:active {
+    background-color: #bbb;
+    transform: scale(0.98); /* Slight click effect */
+}
+
+
+.engineInput {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.engineInput select{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.engineGrid {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.engine {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: black;
+    color: red;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.engine.highlighted {
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rooms {
+    display: flex;
+    gap: 30px; /* Space between the two rooms */
+}
+
+.room {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns in each room */
+    gap: 10px; /* Space between items in each room */
+}
+
+.stairs {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}

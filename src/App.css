@@ -1,22 +1,58 @@
 body{
-    display: flex;
-    flex-direction: column;
     align-items: center;
     background-color: #689053;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+    color: black;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
+#program{
     align-items: center;
-    padding: 30px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+    width: 80%;
+    margin: auto;
+    padding: 5px;
 }
-.title:hover{
-    color: hsla(0, 0%, 90%);
+
+#header{
+    text-align: center;
+    width: 100%;
+    padding: 20px; 
+}
+
+#header h1{
+    font-size: xxx-large;
+    cursor: pointer;
+}
+#header h1:hover{
+    color: rgba(0, 0, 0, 0.60);
+}
+
+#nav-buttons button{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
     cursor: pointer;
 }
 
-.container .subTitle{
-    font-size: 35px;
+#nav-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+#nav-buttons button:active {
+    background-color: #bbb;
+    transform: scale(0.98); /* Slight click effect */
+}
+
+#welcome{
+    padding: 10px; 
+    margin: 0;
+}
+
+#welcome-message{
+    margin-top: 0;
 }

@@ -61,8 +61,6 @@ function CodeGuesser() {
             break; // Found a valid pair, no need to check further
         }
     }
-
-    console.log(`Rows: ${rows}, Columns: ${columns}`);
   }
 
   useEffect(() => {
@@ -79,14 +77,13 @@ function CodeGuesser() {
   }
 
   return (
-    <>
-      <h1 className="subTitle">Payday 3 Code Guesser</h1>
+    <div>
+      <h1>Payday 3 Code Guesser</h1>
       <span className={styles.codeGuesserBody}>
         <div className={styles.codeGuesserText}>
             <h3>
                 This page aims to provide all possible code combinations for keypads in Payday 3
             </h3>
-            <br />
             <h3>
                 If there is less than 4 different digits in the code. one of the numbers might be more
                 lit up than the others, if such can be identified, please provide it in the optional input box.
@@ -110,11 +107,12 @@ function CodeGuesser() {
             type="number"
             placeholder="Enter whitest digit here"
             />
+            <button className={styles.codeGuesserButton} onClick={calculateCodes}>Calculate</button>
         </div>
         <br />
       </span>
       
-      <button className={styles.codeGuesserButton} onClick={calculateCodes}>Calculate</button>
+      
       <h2>Generated Codes:</h2>
       <div className={styles.codeGuesserResults}>
         
@@ -129,7 +127,7 @@ function CodeGuesser() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

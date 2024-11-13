@@ -1,6 +1,28 @@
 .codeGuesserBody{
     width: 50%;
 }
+.codeGuesserButton{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.codeGuesserButton:hover {
+    background-color: rgba(0, 0, 0, 0.60);
+    cursor: pointer;
+}
+
+.codeGuesserButton:active {
+    background-color: #bbb;
+    transform: scale(0.98); /* Slight click effect */
+  }
+
 
 input[type=number]{
     font-size: 1.5rem;
@@ -10,7 +32,8 @@ input[type=number]{
     min-width: 125px;
     border: none;
     border-radius: 10px;
-    transition: background-color 0.5s ease;
+    background-color: black;
+    color: white;
 }
 
 .codeGuesserResults {
@@ -30,7 +53,8 @@ input[type=number]{
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
-    background-color: #1a1a1a;
+    background-color: black;
+    color: white;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
@@ -39,7 +63,7 @@ input[type=number]{
   }
   
   .codeItem:hover {
-    background-color: #ddd;
+    background-color: rgba(0, 0, 0, 0.60);
   }
   
   .codeItem:active {
